@@ -1,0 +1,21 @@
+title: "More Women In Power"
+description: More Women In Power
+
+markdown: redcarpet
+highlighter: pygments
+permalink: /:year/:month/:day/:title/
+
+# Color settings (hex-codes without the leading hash-tag)
+color:
+  primary: a028f7
+  secondary: fab11c  
+  secondary-dark: 333
+
+
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - README.md
+    - LICENSE
+    - _config_dev.yml
+    - run.bat

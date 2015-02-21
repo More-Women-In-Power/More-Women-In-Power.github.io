@@ -1,0 +1,36 @@
+---
+layout: blog
+title: My Blog
+---
+
+<section class="posts-list">
+	<ul class="listing">
+	{% for post in site.posts %}
+  	{% capture y %}{{post.date | date:"%Y"}}{% endcapture %}
+  	{% if year != y %}
+    	{% assign year = y %}
+    	<li class="listing-seperator">{{ y }}</li>
+  	{% endif %}
+  <li class="listing-item">
+    <time datetime="{{ post.date | date:"%Y-%m-%d" }}">{{ post.date | date:"%Y-%m-%d" }}</time>
+    <a href="{{ post.url }}" title="{{ post.title }}" class="postTitle">{{ post.title }}</a>
+		<!-- Tags -->
+		{% if post %}
+			{% assign tags = post.tags %}
+		{% else %}
+			{% assign tags = page.tags %}
+		{% endif %}
+
+		<div class="tag-wrap">
+			{% for tag in tags %}
+			<span class="postTags">
+				<i class="fa fa-tag"></i>
+				<a href="/tags/#{{tag|slugize}}" class="postTag">{{tag}}</a>{% unless forloop.last %}{% endunless %}
+			</span>
+			{% endfor %}
+		</div>
+  </li>
+{% endfor %}
+</ul>
+
+</section>
